@@ -14,103 +14,102 @@
 
 # 二、接入SDK
 
-1. 导入相关jar包
+### 1、导入相关jar包
 
-   1. Eclipse 工程
+1. Eclipse 工程
 
-      >
+   >
 
-   2. Android Studio 工程
+2. Android Studio 工程
 
-      > 将sdk android_studio 目录下的 libs 中文件复制到你项目libs中
-      >
-      > 其中 universal-image-loader-1.9.5.jar 是图片加载框架，如果你的项目中也使用了此框架，无需重复加载
-      >
-      > 项目中引用 aar 包
-      >
-      > 在 android 同级标签中增加以下代码
-      >
-      >   repositories {
-      > ​        flatDir {
-      > ​        dirs 'libs'
-      > ​    }
-      >
-      >  
-      >
-      > 引用
-      >
-      > ```groovy
-      > implementation(name: 'haiyou_common_xx', ext: 'aar')
-      > implementation(name: 'haiyou_topup_xx', ext: 'aar')
-      > ```
-      > 完整配置参考demo中的配置
+   > 将sdk android_studio 目录下的 libs 中文件复制到你项目libs中
+   >
+   > 其中 universal-image-loader-1.9.5.jar 是图片加载框架，如果你的项目中也使用了此框架，无需重复加载
+   >
+   > 项目中引用 aar 包
+   >
+   > 在 android 同级标签中增加以下代码
+   >
+   >   repositories {
+   > ​        flatDir {
+   > ​        dirs 'libs'
+   > ​    }
+   >
+   >  
+   >
+   > 引用
+   >
+   > ```groovy
+   > implementation(name: 'haiyou_common_xx', ext: 'aar')
+   > implementation(name: 'haiyou_topup_xx', ext: 'aar')
+   > ```
+   > 完整配置参考demo中的配置
 
-   <b>注</b>  <I>google_pay_xx.jar<I> 是封装了谷歌支付的jar包，简化Goolge支付
+<b>注</b>  <I>google_pay_xx.jar<I> 是封装了谷歌支付的jar包，简化Goolge支付
 
-2. 配置工作
+### 2、配置工作
 
-   1. 权限
+1. 权限
 
-      ```xml
-      <uses-permission android:name="android.permission.INTERNET" />
-      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />   
-      
-      <!-- 谷歌支付权限 -->
-      <uses-permission android:name="com.android.vending.BILLING" />
-          
-      <!-- 图片缓存需要 -->    
-      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-      ```
-
-   2. 配置 appid 和 支付使用的 Activity 
-
-       在AndroidManifest.xml 中配置
-
-      ```xml
-      <application>
-          <activity
-              android:name="com.walletfun.pay.task.WalletActivity“
-              android:configChanges="screenSize|keyboardHidden|orientation" 
-              android:theme="@style/WalletPayTheme"/>
-                                                         
-           <activity
-               android:name="com.walletfun.pay.task.WebActivity"
-               android:configChanges="screenSize|keyboardHidden|orientation"
-               android:theme="@style/WalletPayTheme" />
-                  
-          <!-- 此处不配置可以在初始化时传入 -->
-          <meta-data
-              android:name="wallet_app_id"
-              android:value="YOUR APP ID" />
-      
-      </application>
-      ```
-
-
-
-3. 初始化
-
-   在Activity 中 或者 Application 中进行初始化操作
-
-   在Activity 中需要在 onDestroy 中进行解绑
-
-   ```java
-     
-     // 添加充值SDK
-     WalletHelp.addSDK(new WalletPaySDK());
-     //  设置应用环境 测试环境:true  线上环境:false
-    // 测试环境第三方支付会始终打开，方便调试
-     WalletHelp.setEnvDebug(false);
-     // 初始化并设置公共参数
-     WalletHelp.init(this, "APPID", "KEY", WalletHelp.SANDBOX_CLOSE);
+   ```xml
+   <uses-permission android:name="android.permission.INTERNET" />
+   <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />   
    
-   // 设置充值参数用户 id 可选
-   // WalletPaySDK.setUserId("abc");
-   
+   <!-- 谷歌支付权限 -->
+   <uses-permission android:name="com.android.vending.BILLING" />
+       
+   <!-- 图片缓存需要 -->    
+   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
    ```
 
-4. 开启悬浮窗口 只能在 Activity 中
+2. 配置 appid 和 支付使用的 Activity 
+
+    在AndroidManifest.xml 中配置
+
+```
+   <application>
+       <activity
+           android:name="com.walletfun.pay.task.WalletActivity“
+           android:configChanges="screenSize|keyboardHidden|orientation" 
+           android:theme="@style/WalletPayTheme"/>
+      <activity
+            android:name="com.walletfun.common.app.HaiYouShowActivity"
+            android:theme="@style/WalletPayTheme"
+            android:configChanges="screenSize|keyboardHidden|orientation" />
+               
+       <!-- 此处不配置可以在初始化时传入 -->
+       <meta-data
+           android:name="wallet_app_id"
+           android:value="YOUR APP ID" />
+   
+   </application>
+```
+
+
+
+### 3、初始化
+
+在Activity 中 或者 Application 中进行初始化操作
+
+在Activity 中需要在 onDestroy 中进行解绑
+
+```java
+  
+  // 添加充值SDK
+     
+        WalletHelp.addSDK(new WalletPaySDK());
+        //  设置应用环境 测试环境:true  线上环境:false
+        // 测试环境第三方支付会始终打开，方便调试
+        WalletHelp.setEnvDebug(false);
+        // 设置用户 id ，可选择
+        // WalletPaySDK.setUserId("abc");
+        // 设置悬浮窗口状态回调
+        WalletHelp.init(this,appid,key,WalletHelp.SANDBOX_CLOSE);
+ 
+```
+
+1. 开启悬浮窗口 只能在 Activity 中
 
    ```java
    // 悬浮窗口监听事件（非必须）
@@ -135,9 +134,19 @@
             * 返回一个自定义的值，会在支付完成的时候一块回调
             * @return
             */
-           public String onThirdPayClick() {
-             //  ("传入out_order_id" 支付完成后会从服务器收到该参数);
-               return "out_order_id";
+           
+          @Override
+           public String onThirdPayClick(String buttonName) {
+              switch (buttonName) {
+                   case FloatUtils.FLOATBUTTON_ACTIVITY:
+                      // 点击活动按钮 
+                       return "  ";
+                   case FloatUtils.FLOATBUTTON_TOPUP:
+                         // 点击充值按钮 
+                       return "额外参数：支付结束后 在out_order_id中展示";
+                      // return  FloatUtils.FLOATBUTTON_NOTOPEN
+               //  return FloatUtils.FLOATBUTTON_NOTOPEN 是拦截单击事件
+               }
            }
    
        };
@@ -171,7 +180,7 @@
        }
    ```
 
-5. 监听支付结果，<b>需要在Activity中开启，并且和打开悬浮窗的Activity保证为同一对象，否则无法监听</b>
+2. 监听支付结果，<b>需要在Activity中开启，并且和打开悬浮窗的Activity保证为同一对象，否则无法监听</b>
 
    ```java
    private WalletPayHelper payHelper;
@@ -253,7 +262,7 @@
    
    ```
 
-6. class 引用路径
+3. class 引用路径
 
    ```
    import com.walletfun.common.app.WalletHelp;
@@ -265,7 +274,7 @@
    import com.walletfun.pay.WalletPaySDK;
    ```
 
-7. 其他参见接口文档和demo
+4. 其他参见接口文档和demo
 
 # 三 、商品参数
 
@@ -296,8 +305,11 @@ public class PayResult {
     }
 ```
 
-
 # 四、更新说明
+
+* 2018-12-25 v2.2
+
+   1) 公共模块升级  将活动模块放入公共模块
 
 * 2018-11-16 v2.1
 

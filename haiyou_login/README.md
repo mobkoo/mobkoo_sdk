@@ -38,6 +38,11 @@
   <activity
             android:name="com.walletfun.login.ui.LoginActivity"
             android:configChanges="screenSize|keyboardHidden|orientation" />
+  <!-- 还有活动页面 如果已经注册 无需重复-->
+   <activity
+              android:name="com.walletfun.common.app.HaiYouShowActivity"
+              android:theme="@style/WalletPayTheme"
+              android:configChanges="screenSize|keyboardHidden|orientation" />
   
   <!-- facebook 登录 -->
   <meta-data
@@ -181,60 +186,60 @@ protected void onActivityResult(int requestCode, int resultCode, @Nullable Inten
                               
 private void login(){
     // 使用默认登录方式
-    helper.showLogin(WalletLoginHelper.LOGIN_DEFAULT);
+    helper.showLogin(HaiYouLoginHelper.LOGIN_DEFAULT);
    
     // 以下为单独调用代码，自定义登录界面
     // facebook
- //   helper.showLogin(WalletLoginHelper.LOGIN_PLATFORM_FACEBOOK);
+ //   helper.showLogin(HaiYouLoginHelper.LOGIN_PLATFORM_FACEBOOK);
     
     // google
- //   helper.showLogin(WalletLoginHelper.LOGIN_PLATFORM_GOOGLE);
+ //   helper.showLogin(HaiYouLoginHelper.LOGIN_PLATFORM_GOOGLE);
     
     // 海游
- //   helper.showLogin(WalletLoginHelper.LOGIN_PLATFORM_HAIYOU);
+ //   helper.showLogin(HaiYouLoginHelper.LOGIN_PLATFORM_HAIYOU);
     
     // 游客
- //   helper.showLogin(WalletLoginHelper.LOGIN_PLATFORM_GUEST);
+ //   helper.showLogin(HaiYouLoginHelper.LOGIN_PLATFORM_GUEST);
 }
                                 
 
-private void loginSuccess(WalletUser user){
+private void loginSuccess(HaiYouUser user) {
     // 登录成功的平台
-    int platform = user.getPlatform();
+    int platform =  helper.platformName(user.getPlatform());
     
-    // 用户在此平台上的id
-    String platformUserId = user.getLoginPlatformId();
+    // 用户的id
+    String  UserId =user.getId();
     
     // 用户的 token
-    String token = user.getAccessToken();
+    String token = user.getToken();
     
     // 用户的昵称，可能为空为null
     String nickName = user.getNickname();
     
     // 用户头像 可能为 null 为空
     String userIcon = user.getUserIcon();
-    
+   
 }
 
 
 private void loginFailure(int platform, Object err){
    
     switch (platform) {
-        case WalletLoginHelper.LOGIN_PLATFORM_FACEBOOK:
+          case HaiYouLoginHelper.LOGIN_PLATFORM_FACEBOOK:
             // 使用 facebook 登录失败
             if (exception instanceof FacebookException) {
                 String msg = err.toString();
             }
             
             break;       
-        case WalletLoginHelper.LOGIN_PLATFORM_GOOGLE:
+          case HaiYouLoginHelper.LOGIN_PLATFORM_GOOGLE:
             if (exception instanceof ApiException) {
                 // 谷歌登录失败
                 int errorCode = (ApiException) exception).getStatusCode();
             }
             break;           
-        case WalletLoginHelper.REQUEST_LOGIN_HAIYOU:
-        case WalletLoginHelper.LOGIN_PLATFORM_GUEST:
+          case HaiYouLoginHelper.REQUEST_LOGIN_HAIYOU:
+          case HaiYouLoginHelper.LOGIN_PLATFORM_GUEST:
             
             if (exception instanceof Exception) {
                 // 错误信息
@@ -245,39 +250,41 @@ private void loginFailure(int platform, Object err){
             // 未知原因
                 break;
         }
-    
 }
                                 
 ```
-### 3、 查询上次登录信息
+### 3、查询上次登录信息
 
   // 查询上次登录是否有效，目前谷歌登录需要每次进来都登录
 
 ```
   // 查询上次登录是否有效，目前谷歌登录需要每次进来都登录
-    helper.hrtUser(new WalletUserCallback() {
-        @Override
-        public void onUserResult(WalletUser user) {
-
-            // 如果为 null 则说明登录过期，或者是谷歌登录
-
-            if (user == null) {
-              // 调用登录
-                login();
-            } else {
-                // 可以不重新登录
-                loginSuccess(user);
-            }
-
-
-        }
-    });    
-}
+    helper.hrtUser(new HaiYouUserCallback() {
+                    @Override
+                    public void onUserResult(HaiYouUser user) {
+                        // 如果为 null 则说明登录过期，或者是谷歌登录
+                        if (user == null) {
+                            resultEdit.append("请重新登录\n");
+                        } else {
+                            loginSuccess(user);
+                        }
+                    }
+                });
 ```
 
-   
+### 4、退出登录
 
-###（4）使用class路径引用   
+```
+ helper.logout();
+```
+
+### 5、打开公共模块悬浮框
+
+```
+WalletHelp.showFloat(this); // 在WalletHelp.init()方法后调用
+```
+
+### 6、使用class路径引用   
 
 ```
 import com.facebook.FacebookException;
@@ -286,6 +293,7 @@ import com.walletfun.common.app.WalletHelp;
 import com.walletfun.login.HaiYouLoginCallback;
 import com.walletfun.login.HaiYouLoginHelper;
 import com.walletfun.login.HaiYouLoginResult;
+import com.walletfun.login.HaiYouLoginSdk;
 import com.walletfun.login.HaiYouLoginStatus;
 import com.walletfun.login.HaiYouUser;
 import com.walletfun.login.HaiYouUserCallback;
@@ -296,46 +304,54 @@ import com.walletfun.login.HaiYouUserCallback;
 
 ```java
 public class HaiYouUser {
-// 登录的用户名，一般没有 用户名，谷歌登录的邮箱
-private String username;
-// 用户昵称
-private String nickname;
-
-// 登录平台上的 id（用户ID）
-private String loginPlatformId;
-// 平台id
-private int platform;
-/**
- * 0 - 保密、未公开
- * 1 - 男
- * 2 - 女
- */
-private int gender;
-// 昵称
-private String address;
-// 邮箱
-private String email;
-// 生日
-private String birth;
-// 手机号
-private String mobilePhone;
-
-// 对开发者公开
-private String accessToken;
-// 头像url
-private String userIcon;
+    
+    // 用户ID
+    private String id;
+    // 用户所属国家CODE
+    private String country_code;
+    // 昵称
+    private String nickname;
+    // token
+    private String token;
+    // 头像
+    private String userIcon;
+    // 登录的平台
+    private int platform;
+    
+    
+    // （facebook 和google登录成功时 返回的数据）
+    private ExtraDataBean extra_data;
+    
+      public static class ExtraDataBean implements Serializable{
+      
+        private String openID;        //   用户ID
+        
+        private String nickname;      //   用户昵称
+ 
+        private int sex;              // 性别
+ 
+        private String email;         // 邮箱
+          
+        private String address;       // 地址
+        private String userIcon;      // 头像
+        private String platform;      // 平台  facebook or google
+        private String accessToken;   // 平台token
+        private String mobilePhone;   // 联系方式
+      }
+}
 ```
 
 
 ## 四、更新记录
 
-| 版本  |    日期    |   说明   | 其他 |
-| :---: | :--------: | :------: | :--: |
-|       |            |          |      |
-|  2.1  | 2018.12.17 | 优化逻辑 |      |
-| 2.0.0 | 2018.11.16 | 完善功能 |      |
-| 1.0.0 | 2018.10.22 | 基本功能 |      |
-|       |            |          |      |
+| 版本  |    日期    |   说明   |     其他     |
+| :---: | :--------: | :------: | :----------: |
+|       |            |          |              |
+|  2.2  | 2018.12.24 | bug修复  | 更改用户信息 |
+|  2.1  | 2018.12.17 | 优化逻辑 |              |
+| 2.0.0 | 2018.11.16 | 完善功能 |              |
+| 1.0.0 | 2018.10.22 | 基本功能 |              |
+|       |            |          |              |
 
 
 

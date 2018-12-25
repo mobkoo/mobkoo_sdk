@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.walletfun.demo">
+
+    <!-- SDK 权限配置 -->
+
+    <!-- 通用权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".LoginSdkActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation" />
+
+        <!-- 海游登录sdk 配置  -->
+        <activity
+            android:name="com.walletfun.login.ui.RegisterOrForgotActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation" />
+
+        <activity
+            android:name="com.walletfun.login.ui.LoginActivity"
+            android:configChanges="screenSize|keyboardHidden|orientation"
+            android:theme="@style/WalletPayTheme"
+            />
+
+        <activity
+            android:name="com.walletfun.common.app.HaiYouShowActivity"
+            android:theme="@style/WalletPayTheme"
+            android:configChanges="screenSize|keyboardHidden|orientation" />
+
+        <!-- facebook 登录 -->
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <!-- 注意： 951132541753416 这个值请更换成 facebook_app_id 的值-->
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider951132541753415"
+            android:exported="true" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <!-- facebook end -->
+
+
+    </application>
+
+</manifest>

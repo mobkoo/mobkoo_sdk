@@ -65,6 +65,10 @@
                android:name="com.example.paysdk.ui.HaiYouPayActivity"
                android:configChanges="screenSize|keyboardHidden|orientation"
                android:theme="@style/WalletPayTheme" />
+            <activity
+               android:name="com.walletfun.common.app.HaiYouShowActivity"
+               android:theme="@style/WalletPayTheme"
+               android:configChanges="screenSize|keyboardHidden|orientation" />
       
       </application>
       ```
@@ -99,8 +103,7 @@
     @Override
        protected void onDestroy() {
            WalletHelp.onDestory(this);
-           haiYouPayHelp.ondestory();
-           super.onDestroy();
+            super.onDestroy();
        }
    
    ```
@@ -129,7 +132,7 @@
    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
     // 并且在使用 startActivityForResult 时 requestCode 不要设置为20001 和20002，防止出现意外情况
        super.onActivityResult(requestCode, resultCode, data);
-       if (haiYouPayHelp != null) haiYouPayHelp.onActivityRrsult(requestCode, resultCode, data);
+       if (haiYouPayHelp != null) haiYouPayHelp.onActivityResult(requestCode, resultCode, data);
        }
    
    
