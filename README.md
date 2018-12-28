@@ -8,3 +8,4 @@
 | [FB的Analytics](/analytics)       | 用于分析投放数据，安装、计算CPI                |
 | [谷歌的FIrebase](/firebase)       | 主要用于云推送功能                             |
 | [appsflyer](/appsfly)             | 主要用于统计推广的渠道，国家，激活数据不太准确 |
+| [talkingdata](talkingdata)        | 主要用于统计用户信息和支付信息                 |
