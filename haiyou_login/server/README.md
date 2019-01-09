@@ -6,6 +6,11 @@
 	</tr>
 </table>
 
+<table>
+	<tr>
+		<td>接口地址</td>
+	</tr>
+</table>
 ```
 http://api.haiyoupay.com/pay/user.Check/check_login
 ```
