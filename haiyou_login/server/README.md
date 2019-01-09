@@ -1,6 +1,10 @@
 #### 检查登录状态接口
-|接口传参方式|GET/POST|
-|-|-|
+<table>
+	<tr>
+		<td>传参方式</td>
+		<td>GET/POST</td>
+	</tr>
+</table>
 
 ```
 http://api.haiyoupay.com/pay/user.Check/check_login
