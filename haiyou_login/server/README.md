@@ -20,6 +20,7 @@
 |token|String|token登录标记|
 |appid|String|应用id|
 |device_id|String|设备id|
+|user_id|int|用户id|
 
 ##### 返回参数
 |字段|类型|描述|
