@@ -5,21 +5,21 @@
 		<td>GET/POST</td>
 	</tr>
 </table>
-
 <table>
 	<tr>
 		<td>接口地址</td>
+        <td>http://api.haiyoupay.com/pay/user.Check/check_login</td>
 	</tr>
 </table>
-```
-http://api.haiyoupay.com/pay/user.Check/check_login
-```
+
+
 
 ##### 传递参数
 |字段|类型|描述|
 |-|-|-|
 |token|String|token登录标记|
 |appid|String|应用id|
+|device_id|String|设备id|
 
 ##### 返回参数
 |字段|类型|描述|
