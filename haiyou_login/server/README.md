@@ -27,13 +27,19 @@
 |-|-|-|
 |code|int|登录成功返回200,未登录返回400|
 |msg|String|返回的具体信息|
+|data|String|返回调用接口时传递的参数(json集合)|
 
 ##### success response
 ```
 {
     "code": 200,
     "msg": "Already logged in",
-    "data": {}
+    "data": 
+        {
+        "token": "eab67fb73a1dc5ec7686930a4671f834",
+        "user_id": "160",
+        "device_id": "706404745324881242229446"
+        }
 }
 ```
 
@@ -42,7 +48,12 @@
 {
     "code": 400,
     "msg": "Login timeout, please login again",
-    "data": {}
+    "data": 
+    	{
+        "token": "eab67fb73a1dc5ec7686930a4671f834",
+        "user_id": "160",
+        "device_id": "706404745324881242229446"
+        }
 }
 ```
 
