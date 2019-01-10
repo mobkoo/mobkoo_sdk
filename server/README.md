@@ -16,19 +16,22 @@
 
 回传的方式：GET
 
-| 字段                  | 类型   | 是否必填 | 描述                                                         | 示例值            |
-| --------------------- | ------ | -------- | ------------------------------------------------------------ | ----------------- |
-| appid                 | string | 是       | 海游分配给开发者的应用ID                                     | 123456            |
-| out_order_id          | string | 是       | 商户订单号（发起支付前的自定义参数）                         | dasd45sa45        |
-| order_id              | string | 是       | 支付订单号                                                   | 201809191dksd55   |
-| dols_price            | string | 是       | 支付价格（单位是美元）                                       | 10                |
-| sandbox               | int    | 是       | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境               | 0                 |
-| state                 | string | 是       | 订单状态，<br />succ=支付成功，<br />fail=支付失败，<br />refund=退款 | succ              |
-| error_msg             | string | 否       | 支付失败的说明                                               | error             |
-| product_id            | string | 是       | 商品ID（发起支付前传入的product_id）                         | 123               |
-| game_currency         | string | 是       | 游戏币                                                       | 1000              |
-| game_currency_present | string | 是       | 赠送的游戏币                                                 | 100               |
-| sign                  | string | 是       | 签名，md5(md5(待签名字符串)+签名的钥匙)<br />详情请看下面的说明 | e1f092ac91b5fcdf9 |
+| 字段                  | 类型   | 是否必填 | 描述                                                         | 示例值                                                       |
+| --------------------- | ------ | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| appid                 | string | 是       | 海游分配给开发者的应用ID                                     | 123456                                                       |
+| out_order_id          | string | 是       | 商户订单号（发起支付前的自定义参数）                         | dasd45sa45                                                   |
+| order_id              | string | 是       | 支付订单号                                                   | 201809191dksd55                                              |
+| dols_price            | string | 是       | 支付价格（单位是美元）                                       | 10                                                           |
+| sandbox               | int    | 是       | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境               | 0                                                            |
+| state                 | string | 是       | 订单状态，<br />succ=支付成功，<br />fail=支付失败，<br />refund=退款 | succ                                                         |
+| error_msg             | string | 否       | 支付失败的说明                                               | error                                                        |
+| product_id            | string | 是       | 商品ID（发起支付前传入的product_id）                         | 123                                                          |
+| game_currency         | string | 是       | 游戏币                                                       | 1000                                                         |
+| game_currency_present | string | 是       | 赠送的游戏币                                                 | 100                                                          |
+| user_id               | string | 是       | 用户id                                                       | 160                                                          |
+| platform_type         | string | 是       | 支付平台类型                                                 | 示例:"google_pay"为谷歌支付,"haiyou_pay"为海游第三方支付,"apple_pay"为苹果支付 |
+| pay_time              | string | 是       | 支付时间                                                     | 2019-01-10 16:56:20                                          |
+| sign                  | string | 是       | 签名，md5(md5(待签名字符串)+签名的钥匙)<br />详情请看下面的说明 | e1f092ac91b5fcdf9                                            |
 
 
 
@@ -47,19 +50,16 @@
 ```
 举例：
 请求的所有参数的如下
-appid=123456
-out_order_id=dasd45sa45
-order_id=201809191dksd55
-dols_price=dasd45sa45
-state=succ
-error_msg=error
-game_currency=1000
-game_currency_present=100
+efg=dsadsdsad
+abc=123456
+bcd=ewqeaqewq
+cde=ewqdsad
+def=dsadsadsa
 
 
 按照字符的键值ASCII码递增排序（字母升序排序）
 并生成待签名字符串为：
-appid=123456&dols_price=dasd45sa45&error_msg=error&game_currency=1000&game_currency_present=100&order_id=201809191dksd55&out_order_id=dasd45sa45&state=succ
+abc=123456&bcd=ewqeaqewq&cde=ewqdsad&def=dsadsadsa&efg=dsadsdsad
 
 签名的算法：
 md5(md5(待签名字符串)+签名的钥匙)
@@ -67,7 +67,7 @@ md5(md5(待签名字符串)+签名的钥匙)
 如果签名的钥匙为：lnxMZjgeIGlouasj
 
 则生成的最终的签名为：
-ffadae5c4705d6d4f475845da9882cb6d
+eed8bebc84c37bc5ecb46ff89598bfea
 
 ```
 
