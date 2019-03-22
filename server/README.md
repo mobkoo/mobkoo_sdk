@@ -91,6 +91,9 @@ ok
 
 # 订单交易查询接口
 
+## 请求地址
+http://api.haiyoupay.com/pay/common.CheckOrder/index
+
 商户可以通过该接口主动查询订单状态，完成下一步的业务逻辑。 
 
 请求方式：GET/POST
