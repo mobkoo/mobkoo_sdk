@@ -28,7 +28,6 @@ http://pay.walletfun.com/pay/common.Pay/index
 | ------------- | ------ | -------- | ---------------------------------------------- | --------------- |
 | appid         | string | 是       | 海游分配给开发者的应用ID                       | 123456          |
 | out_order_id  | string | 否       | 商户订单号（自定义参数）                       | dasd45sa45      |
-| order_id      | string | 是       | 支付订单号                                     | 201809191dksd55 |
 | country_name  | string | 是       | 国家名称(小写)                                 | indonesia       |
 | mode_name     | string | 是       | 支付方式                                       | e_wallet        |
 | platform_name | string | 是       | 平台名称                                       | true_money      |
