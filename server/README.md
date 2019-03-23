@@ -116,4 +116,9 @@ http://api.haiyoupay.com/pay/common.CheckOrder/index
 | data.order_info.state                 | String | 否       | 订单状态 <br/>pending:支付中<br />succ:支付成功<br />fail:支付失败<br />refund:退款 |
 | data.order_info.out_order_id          | String | 否       | 商户订单号                                                   |
 | data.order_info.game_currency         | float  | 否       | 游戏币                                                       |
-| data.order_info.game_currency_present | float  | 否       | 当地货币单位                                                 |
+| data.order_info.game_currency_present | float  | 否       | 赠送的游戏币   |
+| data.order_info.price | float  | 否       | 价格(非美元货币价格转化为美元价格)                                                |
+| data.order_info.monetary_unit| float  | 否       | 货币单位,目前固定为USD |
+| data.order_info.sandbox | int  | 否       |沙盒模式                                                 |
+| data.order_info.platform_name | string  | 否       |支付平台ID                                                 |
+| data.order_info.product_id | int  | 否       |   商品ID                                              |
