@@ -7,4 +7,3 @@
 | [支付sdk](/AndroidSDK/haiyou_pay)           | 集成了谷歌支付以及第三方支付平台                            |
 | [聚合统计SDK ](/AndroidSDK/haiyou_analysis) | 集成了 FacebookAnalysis 、 Appsflyer、 talkingData 数据统计 |
 
-
