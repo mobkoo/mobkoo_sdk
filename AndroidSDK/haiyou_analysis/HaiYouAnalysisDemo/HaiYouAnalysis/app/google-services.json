@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "525339859351",
+    "firebase_url": "https://myproject-2a899.firebaseio.com",
+    "project_id": "myproject-2a899",
+    "storage_bucket": "myproject-2a899.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525339859351:android:aac2fffe8f12d023",
+        "android_client_info": {
+          "package_name": "com.shanems.test.ad"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525339859351-pkipm9kghi7pi91libp4b60m376g3jr1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkzpvrG4fVdbRD5_eOpThaCkauk2yrz5g"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
