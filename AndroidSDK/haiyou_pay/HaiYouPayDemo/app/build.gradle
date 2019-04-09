@@ -1,0 +1,62 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 26
+    signingConfigs {
+        config {
+            keyAlias 'test'
+            keyPassword 'windbell906'
+            storeFile file('D:/HaiYouWork/SDK/keystory/test_wz_27.jks')
+            storePassword 'windbell906'
+        }
+    }
+
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "free.vpn.proxy.unblock.unlimited.netup"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 20003
+        versionName "2.0.3"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.config
+        }
+    }
+}
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+ //   implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation(name: 'haiyou_pay_3.2.0', ext: 'aar')
+    implementation(name: 'haiyou_common_3.2.0', ext: 'aar')
+    implementation files('libs/google_pay.jar')
+    implementation files('libs/glide-3.7.0.jar')
+
+    implementation(name: 'animated-vector-drawable-26.1.0', ext: 'aar')
+    implementation(name: 'appcompat-v7-26.1.0', ext: 'aar')
+    implementation(name: 'runtime-1.0.0', ext: 'aar')
+    implementation(name: 'support-compat-26.1.0', ext: 'aar')
+    implementation(name: 'support-core-ui-26.1.0', ext: 'aar')
+    implementation(name: 'support-core-utils-26.1.0', ext: 'aar')
+    implementation(name: 'support-fragment-26.1.0', ext: 'aar')
+    implementation(name: 'support-media-compat-26.1.0', ext: 'aar')
+    implementation(name: 'support-v4-26.1.0', ext: 'aar')
+    implementation(name: 'support-vector-drawable-26.1.0', ext: 'aar')
+    implementation files('libs/support-annotations-26.1.0.jar')
+}
+
+
+
