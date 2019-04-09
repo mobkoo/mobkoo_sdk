@@ -1,4 +1,4 @@
-<h1><center>服务器API接口文档</center></h1>
+<h1><center>H5版的API接口文档</center></h1>
 
 # 目录
 
