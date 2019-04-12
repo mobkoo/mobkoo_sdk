@@ -122,5 +122,5 @@ http://api.haiyoupay.com/pay/common.CheckOrder/index
 | data.order_info.price | float | 是 | 价格 |
 | data.order_info.sandbox | int | 是 | 是否为沙盒环境,1代表沙盒环境 |
 | data.order_info.platform_name | String | 是 | 支付平台ID |
-| data.product_id | String | 否 | 商品ID |
+| data.order_info.product_id | String | 否 | 商品ID |
 
