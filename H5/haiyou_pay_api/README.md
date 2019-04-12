@@ -1,4 +1,4 @@
-<h1><center>H5版的API接口文档</center></h1>
+<h1><center>服务器API接口文档</center></h1>
 
 # 目录
 
@@ -28,13 +28,13 @@ http://pay.walletfun.com/pay/common.Pay/index
 | ------------- | ------ | -------- | ---------------------------------------------- | --------------- |
 | appid         | string | 是       | 海游分配给开发者的应用ID                       | 123456          |
 | out_order_id  | string | 否       | 商户订单号（自定义参数）                       | dasd45sa45      |
-| order_id      | string | 是       | 支付订单号                                     | 201809191dksd55 |
-| price         | float  | 是       | 支付价格                                       | 10              |
-| monetary_uint | string | 是       | 货币单位                                       | IDR             |
-| sandbox       | int    | 是       | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境(进行沙盒测试请先通知我方运营将请求地址IP加入白名单) | 0               |
-| country_name  | string | 是       | 国家名称                                       | indonesia       |
-| platform_name | string | 是       | 平台名称                                       | true_money      |
-| mode_name     | string | 是       | 支付方式                                       | e_wallet        |
+| country_name  | string | 是       | 国家ID(小写)                               | indonesia       |
+| mode_name     | string | 是       | 支付方式ID                                     | e_wallet        |
+| platform_name | string | 是       | 支付平台ID                                 | true_money      |
+| price         | float  | 是       | 支付价格(必须大于0)                            | 10.00           |
+| monetary_unit | string | 是       | 货币单位                                       | IDR             |
+| sandbox       | int    | 是       | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境(进行沙盒测试请先将测试的服务器IP地址通知我方运营进行添加) | 0               |
+| description       | string    | 否      | 订单描述| 0               |
 
 # 支付回调
 
