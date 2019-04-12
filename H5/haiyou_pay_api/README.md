@@ -31,7 +31,7 @@ http://pay.walletfun.com/pay/common.Pay/index
 | order_id      | string | 是       | 支付订单号                                     | 201809191dksd55 |
 | price         | float  | 是       | 支付价格                                       | 10              |
 | monetary_uint | string | 是       | 货币单位                                       | IDR             |
-| sandbox       | int    | 是       | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境 | 0               |
+| sandbox       | int    | 是       | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境(进行沙盒测试请先通知我方运营将请求地址IP加入白名单) | 0               |
 | country_name  | string | 是       | 国家名称                                       | indonesia       |
 | platform_name | string | 是       | 平台名称                                       | true_money      |
 | mode_name     | string | 是       | 支付方式                                       | e_wallet        |
