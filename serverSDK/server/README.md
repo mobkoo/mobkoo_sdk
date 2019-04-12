@@ -114,8 +114,13 @@ http://api.haiyoupay.com/pay/common.CheckOrder/index
 | code            | string | 是       | 返回的状态结果<br />200=成功，<br />400=失败 <br/>401:未查询到该订单 |
 | msg             | string | 是       | 返回的具体信息                                               |
 | data            | string | 否       | json数据集合                                                 |
-| data.order_info | String | 否       | 订单详情                                                     |
-| data.order_info.state                 | String | 否       | 订单状态 <br/>pending:支付中<br />succ:支付成功<br />fail:支付失败<br />refund:退款 |
-| data.order_info.out_order_id          | String | 否       | 商户订单号                                                   |
+| data.order_info.state                 | String | 是   | 订单状态 <br/>pending:支付中<br />succ:支付成功<br />fail:支付失败<br />refund:退款 |
+| data.order_info.order_id | String | 是 | 订单ID |
+| data.order_info.out_order_id          | String | 否       | 商户订单号(由商户自定义)                                       |
 | data.order_info.game_currency         | float  | 否       | 游戏币                                                       |
 | data.order_info.game_currency_present | float  | 否       | 当地货币单位                                                 |
+| data.order_info.price | float | 是 | 价格 |
+| data.order_info.sandbox | int | 是 | 是否为沙盒环境,1代表沙盒环境 |
+| data.order_info.platform_name | String | 是 | 支付平台ID |
+| data.product_id | String | 否 | 商品ID |
+
