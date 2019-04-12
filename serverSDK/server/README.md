@@ -97,6 +97,9 @@ ok
 
 请求方式：GET/POST
 
+## 请求地址
+http://api.haiyoupay.com/pay/common.CheckOrder/index
+
 | 字段     | 类型   | 是否必填 | 描述                     | 示例值          |
 | -------- | ------ | -------- | ------------------------ | --------------- |
 | appid    | string | 是       | 海游分配给开发者的应用ID | 123456          |
