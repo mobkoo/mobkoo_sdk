@@ -33,7 +33,7 @@ http://pay.walletfun.com/pay/common.Pay/index
 | platform_name | string | 是       | 支付平台ID                                 | true_money      |
 | price         | float  | 是       | 支付价格(必须大于0)                            | 10.00           |
 | monetary_unit | string | 是       | 货币单位                                       | IDR             |
-| sandbox       | int    | 是       | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境(进行沙盒测试请先将测试的服务器IP地址通知我方运营进行添加) | 0               |
+| sandbox       | int    | 是       | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境(进行沙盒测试请先将测试的客户端IP地址通知我方运营进行添加) | 0               |
 | description       | string    | 否      | 订单描述| 0               |
 
 # 支付回调
