@@ -31,6 +31,8 @@
 | game_currency         | string | 是       | 游戏币                                                       | 1000                                                         |
 | game_currency_present | string | 是       | 赠送的游戏币                                                 | 100                                                          |
 | user_id               | string | 是       | 用户id                                                       | 160                                                          |
+| country_name          | string | 是       | 国家名                                                       | philippines                                                  |
+| platform_name         | string | 是       | 平台名                                                       | cashu                                                        |
 | platform_type         | string | 是       | 支付平台类型                                                 | 示例:"google_pay"为谷歌支付,"haiyou_pay"为海游第三方支付,"apple_pay"为苹果支付 |
 | pay_time              | string | 是       | 支付时间                                                     | 2019-01-10 16:56:20                                          |
 | sign                  | string | 是       | 签名，md5(md5(待签名字符串)+签名的钥匙)<br />详情请看下面的说明 | e1f092ac91b5fcdf9                                            |
