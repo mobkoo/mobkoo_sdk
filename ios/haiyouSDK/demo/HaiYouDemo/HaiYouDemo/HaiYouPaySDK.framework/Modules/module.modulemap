@@ -1,0 +1,6 @@
+framework module HaiYouPaySDK {
+  umbrella header "HaiYouPaySDK.h"
+
+  export *
+  module * { export * }
+}
