@@ -10,35 +10,8 @@
 |  1.3   | 2018-11-28 | 优化签名算法的说明，让描述更容易理解 |
 |  1.4   | 2018-12-13 | 支付回调增加product_id（商品ID）字段 |
 |  1.5   | 2019-05-30 | 支付增加商家返回链接参数说明 |
+| 2.0 | 2020-05-13 | 架构调整 |
 
-
-
-## 支付回调参数
-
-当支付成功时，
-
-回传的方式：GET
-
-| 字段                  | 类型   | 是否必填 | 描述                                                         | 示例值                                                       |
-| --------------------- | ------ | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| appid                 | string | 是       | 海游分配给开发者的应用ID                                     | 123456                                                       |
-| out_order_id          | string | 是       | 商户订单号（发起支付前的自定义参数）                         | dasd45sa45                                                   |
-| order_id              | string | 是       | 支付订单号                                                   | 201809191dksd55                                              |
-| price                 | string | 是       | 支付价格                                                     | 6.71                                                         |
-| monetary_unit         | string | 是       | 支付货币单位                                                 | RMB                                                          |
-| dols_price            | string | 是       | 支付价格（单位是美元）                                       | 1                                                            |
-| sandbox               | int    | 是       | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境               | 0                                                            |
-| state                 | string | 是       | 订单状态，<br />succ=支付成功，<br />fail=支付失败，<br />refund=退款 | succ                                                         |
-| error_msg             | string | 否       | 支付失败的说明                                               | error                                                        |
-| product_id            | string | 是       | 商品ID（发起支付前传入的product_id）                         | 123                                                          |
-| game_currency         | string | 是       | 游戏币                                                       | 1000                                                         |
-| game_currency_present | string | 是       | 赠送的游戏币                                                 | 100                                                          |
-| user_id               | string | 是       | 用户id                                                       | 160                                                          |
-| country_name          | string | 是       | 国家名                                                       | philippines                                                  |
-| platform_name         | string | 是       | 平台名                                                       | cashu                                                        |
-| platform_type         | string | 是       | 支付平台类型                                                 | 示例:"google_pay"为谷歌支付,"haiyou_pay"为海游第三方支付,"apple_pay"为苹果支付 |
-| pay_time              | string | 是       | 支付时间                                                     | 2019-01-10 16:56:20                                          |
-| sign                  | string | 是       | 签名，md5(md5(待签名字符串)+签名的钥匙)<br />生成过程请参考"如何签名"章节 | e1f092ac91b5fcdf9                                            |
 
 ## 商家返回链接参数说明
 
@@ -51,6 +24,31 @@
 | out_order_id | string | 是       | 商户订单号（发起支付前的自定义参数）                         | 12345                            |
 | state        | string | 是       | 订单状态，<br />succ=支付成功，<br />fail=支付失败，<br />refund=退款 | succ                             |
 | sign         | string | 是       | 签名，md5(md5(待签名字符串)+签名的钥匙)<br />生成过程请参考"如何签名"章节 | 74873f87e1dda8ac2b1b727b90c079a3 |
+
+## 支付回调参数
+
+当支付成功时，
+
+回传的方式：GET
+
+| 字段          | 类型   | 是否必填 | 描述                                                         | 示例值                                                       |
+| ------------- | ------ | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| appid         | string | 是       | 海游分配给开发者的应用ID                                     | 123456                                                       |
+| out_order_id  | string | 是       | 商户订单号（发起支付前的自定义参数）                         | dasd45sa45                                                   |
+| order_id      | string | 是       | 支付订单号                                                   | 201809191dksd55                                              |
+| price         | string | 是       | 支付价格                                                     | 6.71                                                         |
+| monetary_unit | string | 是       | 支付货币单位                                                 | RMB                                                          |
+| local_price   | string | 是       | 支付价格（单位是美元）                                       | 1                                                            |
+| sandbox       | int    | 是       | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境               | 0                                                            |
+| state         | string | 是       | 订单状态，<br />succ=支付成功，<br />fail=支付失败，<br />refund=退款 | succ                                                         |
+| error_msg     | string | 否       | 支付失败的说明                                               | error                                                        |
+| product_id    | string | 是       | 商品ID（发起支付前传入的product_id）                         | 123                                                          |
+| user_id       | string | 是       | 用户id                                                       | 160                                                          |
+| country_id    | string | 是       | 国家ID                                                       | philippines                                                  |
+| platform_id   | string | 是       | 平台ID                                                       | cashu                                                        |
+| platform_type | string | 是       | 支付平台类型                                                 | 示例:"google_pay"为谷歌支付,"haiyou_pay"为海游第三方支付,"apple_pay"为苹果支付 |
+| pay_time      | string | 是       | 支付时间                                                     | 2019-01-10 16:56:20                                          |
+| sign          | string | 是       | 签名，md5(md5(待签名字符串)+签名的钥匙)<br />生成过程请参考"如何签名"章节 | e1f092ac91b5fcdf9                                            |
 
 
 
