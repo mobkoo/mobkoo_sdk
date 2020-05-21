@@ -11,6 +11,7 @@
 | 版本号 |  更新日期  | 更新日志 |
 | :----: | :--------: | :------: |
 |  1.0   | 2018-11-28 | 初始版本 |
+|  2.0   | 2020-05-21 | 修改架构 |
 
 # 发起支付
 
@@ -20,7 +21,7 @@
 
 ## 请求地址
 
-http://pay.walletfun.com/pay/common.Pay/index
+http://api.mobkoo.com/pay/common.Pay/index
 
 ## 请求参数
 
@@ -38,5 +39,5 @@ http://pay.walletfun.com/pay/common.Pay/index
 
 # 支付回调
 
-支付回调请点击链接查看详情：[https://github.com/haiyouent/haiyoupay_sdk/tree/master/serverSDK/server](https://github.com/haiyouent/haiyoupay_sdk/tree/master/serverSDK/server)
+支付回调请点击链接查看详情：[https://github.com/mobkoo/mobkoo_sdk/tree/master/serverSDK/server](https://github.com/haiyouent/haiyoupay_sdk/tree/master/serverSDK/server)
 
