@@ -39,5 +39,5 @@ http://api.mobkoo.com/pay/common.Pay/index
 
 # 支付回调
 
-支付回调请点击链接查看详情：[https://github.com/mobkoo/mobkoo_sdk/tree/master/serverSDK/server](https://github.com/haiyouent/haiyoupay_sdk/tree/master/serverSDK/server)
+支付回调请点击链接查看详情：[/server/callback](/server/callback)
 
