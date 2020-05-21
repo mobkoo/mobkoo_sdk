@@ -37,7 +37,7 @@
 | out_order_id  | string | 是       | 商户订单号（发起支付前的自定义参数）                         | dasd45sa45                                                   |
 | order_id      | string | 是       | 支付订单号                                                   | 201809191dksd55                                              |
 | price         | string | 是       | 支付价格                                                     | 6.71                                                         |
-| monetary_unit | string | 是       | 支付货币单位                                                 | RMB                                                          |
+| currency      | string | 是       | 支付货币单位                                                 | RMB                                                          |
 | local_price   | string | 是       | 支付价格（单位是美元）                                       | 1                                                            |
 | sandbox       | int    | 是       | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境               | 0                                                            |
 | state         | string | 是       | 订单状态，<br />succ=支付成功，<br />fail=支付失败，<br />refund=退款 | succ                                                         |
@@ -114,7 +114,7 @@ ok
 请求方式：GET/POST
 
 ## 请求地址
-http://api.haiyoupay.com/pay/common.CheckOrder/index
+http://api.mobkoo.com/pay/common.CheckOrder/index
 
 | 字段     | 类型   | 是否必填 | 描述                     | 示例值          |
 | -------- | ------ | -------- | ------------------------ | --------------- |
