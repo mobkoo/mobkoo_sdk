@@ -36,9 +36,8 @@
 | appid         | string | 是       | 海游分配给开发者的应用ID                                     | 123456                                                       |
 | out_order_id  | string | 是       | 商户订单号（发起支付前的自定义参数）                         | dasd45sa45                                                   |
 | order_id      | string | 是       | 支付订单号                                                   | 201809191dksd55                                              |
-| price         | string | 是       | 支付价格                                                     | 6.71                                                         |
+| price         | string | 是       | 支付价格                                                     | 1.00                                                         |
 | currency      | string | 是       | 支付货币单位                                                 | RMB                                                          |
-| local_price   | string | 是       | 支付价格（单位是美元）                                       | 1                                                            |
 | sandbox       | int    | 是       | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境               | 0                                                            |
 | state         | string | 是       | 订单状态，<br />succ=支付成功，<br />fail=支付失败，<br />refund=退款 | succ                                                         |
 | error_msg     | string | 否       | 支付失败的说明                                               | error                                                        |
