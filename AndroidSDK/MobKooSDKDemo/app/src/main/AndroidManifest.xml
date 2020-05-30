@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.project.mobkoosdkdemo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".MobKooApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/login96px"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/login96px"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".PayActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.mobkoo.pay.newUI.MobKooPayActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider174477787319119"
+            android:exported="true" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="mobkoo_appid"
+            android:value="8" />
+        <meta-data
+            android:name="mobkoo_appkey"
+            android:value="31hriti1l33zc2nk" />
+
+        <meta-data
+            android:name="mobkoo_sandbox"
+            android:value="false" />
+
+        <meta-data
+            android:name="mobkoo_google_clientid"
+            android:value="491180860842-csffpugbv9oumfj5b265t8k7r8a4bqhd.apps.googleusercontent.com" />
+
+        <meta-data
+            android:name="mobkoo_google_licensekey"
+            android:value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3JSWpSZ7An/jYxoYiFFzbVSAP9JdxV8gowBxUwJjO38sKSeY4JfBOXWOqIW59ZGYRB/xMKaNsju1XNYo8q/LS1pEadYShkzYfQwI1mujIjhbnMu2hhsa6Z94cbSFuTZb+vHw+z7RcbAZU9xyiWDeCT8BC4BX2osnn4fn9C9DMMJD+AbgBBBGjduuohkgdUSZJl3j/U9gisSKYTu6F2R1hD1i9qYywMstbWrXlewikYVnao5KjKt+qbcrMTOemuK04gaxjhnuL953QIWO9yo+VU1LOMsyrFtYQ7e4YNywEfBpoowxVmns9MxP6FXfLSMqjgVZ58sMsnAWqCQyxoGXqwIDAQAB" />
+    </application>
+
+</manifest>

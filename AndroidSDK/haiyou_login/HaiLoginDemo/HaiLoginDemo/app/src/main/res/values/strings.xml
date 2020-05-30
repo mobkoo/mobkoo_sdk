@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">海游登录SDK</string>
-
-    <string name="facebook_app_id">951132541753415</string>
-
-    <string name="fb_login_protocol_scheme">fb951132541753415</string>
-
-</resources>
