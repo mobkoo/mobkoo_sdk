@@ -6,7 +6,7 @@
 |查询参数|类型|描述|
 |-|-|-|
 |order_id|String|订单id|
-|order_type|String|订单类型:"google_pay","apple_pay","haiyou_pay"|
+|order_type|String|订单类型:"google_pay","apple_pay","mobkoo_pay"|
 
 |返回参数|类型|描述|
 |-|-|-|
