@@ -33,7 +33,7 @@
 
 | 字段          | 类型   | 是否必填 | 描述                                                         | 示例值                                                       |
 | ------------- | ------ | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| appid         | string | 是       | 海游分配给开发者的应用ID                                     | 123456                                                       |
+| appid         | string | 是       | Mobkoo分配给开发者的应用ID                                     | 123456                                                       |
 | out_order_id  | string | 是       | 商户订单号（发起支付前的自定义参数）                         | dasd45sa45                                                   |
 | order_id      | string | 是       | 支付订单号                                                   | 201809191dksd55                                              |
 | price         | string | 是       | 支付价格                                                     | 1.00                                                         |
@@ -45,7 +45,7 @@
 | user_id       | string | 是       | 用户id                                                       | 160                                                          |
 | country_id    | string | 是       | 国家ID                                                       | philippines                                                  |
 | platform_id   | string | 是       | 平台ID                                                       | cashu                                                        |
-| platform_type | string | 是       | 支付平台类型                                                 | 示例:"google_pay"为谷歌支付,"haiyou_pay"为海游第三方支付,"apple_pay"为苹果支付 |
+| platform_type | string | 是       | 支付平台类型                                                 | 示例:"google_pay"为谷歌支付,"mobkoo_pay"为Mobkoo第三方支付,"apple_pay"为苹果支付 |
 | pay_time      | string | 是       | 支付时间                                                     | 2019-01-10 16:56:20                                          |
 | sign          | string | 是       | 签名，md5(md5(待签名字符串)+签名的钥匙)<br />生成过程请参考"如何签名"章节 | e1f092ac91b5fcdf9                                            |
 
@@ -117,7 +117,7 @@ http://api.mobkoo.com/pay/common.CheckOrder/index
 
 | 字段     | 类型   | 是否必填 | 描述                     | 示例值          |
 | -------- | ------ | -------- | ------------------------ | --------------- |
-| appid    | string | 是       | 海游分配给开发者的应用ID | 123456          |
+| appid    | string | 是       | Mobkoo分配给开发者的应用ID | 123456          |
 | order_id | string | 是       | 订单ID                   | 201809191dksd55 |
 
 
