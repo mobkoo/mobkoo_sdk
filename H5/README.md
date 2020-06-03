@@ -22,9 +22,9 @@
 | ------------ | ------ | -------- | ------------------------------------------------------------ | ------------- |
 | lang         | string | 是       | 语言信息，目前只支持英文                                     | en            |
 | price        | float  | 是       | 价格                                                         | 321           |
-| currency     | string | 是       | 货币种类（海游网络提供）                                     | USD           |
-| appid        | string | 是       | 应用ID（海游网络提供）                                       | 8             |
-| key          | string | 是       | 应用对应的密钥（海游网络提供）                               | 8             |
+| currency     | string | 是       | 货币种类（Mobkoo提供）                                     | USD           |
+| appid        | string | 是       | 应用ID（Mobkoo提供）                                       | 8             |
+| key          | string | 是       | 应用对应的密钥（Mobkoo提供）                               | 8             |
 | out_order_id | string | 是       | 商户订单号<br />（在支付完成之后会通过服务器回传）           | 12345         |
 | product_id   | string | 是       | 产品id<br />（在支付完成之后会通过服务器回传）               | 6789          |
 | sandbox      | int    | 是       | 当前环境，<br />1=沙盒环境，0=正式环境<br />（在支付完成之后会通过服务器回传） | 1             |
@@ -32,13 +32,13 @@
 
 ## 示例URL
 
-http://pay.walletfun.com/web/paysdk/pay/payway.html?lang=en&price=321&currency=USD&appid=8&key=31hriti1l33zc2nk&out_order_id=12345&product_id=6789&sandbox=1&time=1544760000000
+https://mobkoo.com/web/paysdk/pay/payway.html?lang=en&price=321&currency=USD&appid=8&key=31hriti1l33zc2nk&out_order_id=12345&product_id=6789&sandbox=1&time=1544760000000
 
 
 
 ## demo的URL
 
-http://pay.walletfun.com/web/paysdk/
+https://mobkoo.com/web/paysdk/
 
 
 
