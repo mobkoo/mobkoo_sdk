@@ -4,5 +4,4 @@
 | [H5方式](/H5)                  | H5端SDK接口文档    |
 | [API方式](/api)                | API对接方式文档              |
 | [服务端](/server)              | 服务端接口文档     |
-| [iosSDK](/ios)                 | ios SDK 接入入口      |
 
