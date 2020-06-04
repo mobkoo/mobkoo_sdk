@@ -42,8 +42,6 @@
 | state         | string | 是       | 订单状态，<br />succ=支付成功，<br />fail=支付失败，<br />refund=退款 | succ                                                         |
 | error_msg     | string | 否       | 支付失败的说明                                               | error                                                        |
 | product_id    | string | 是       | 商品ID（发起支付前传入的product_id）                         | 123                                                          |
-| country_id    | string | 是       | 国家ID                                                       | philippines                                                  |
-| platform_id   | string | 是       | 平台ID                                                       | cashu                                                        |
 | platform_type | string | 是       | 支付平台类型                                                 | 示例:"google_pay"为谷歌支付,"mobkoo_pay"为Mobkoo第三方支付,"apple_pay"为苹果支付 |
 | pay_time      | string | 是       | 支付时间                                                     | 2019-01-10 16:56:20                                          |
 | sign          | string | 是       | 签名，md5(md5(待签名字符串)+签名的钥匙)<br />生成过程请参考"如何签名"章节 | e1f092ac91b5fcdf9                                            |
