@@ -10,14 +10,15 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.mobkoo.MobKooHelp;
 import com.mobkoo.MobKooLoginCallBack;
+import com.mobkoo.MobKooManager;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     protected ImageView btnBack;
     protected Button btnLogin;
     protected Button btnPay;
+    protected Button btnGetUserInfo;
     private MobKooLoginCallBack mobKooLoginCallBack;
 
     @Override
@@ -43,14 +44,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void getUserInfo() {
-        MobKooHelp.singleton().getUserInfo(this, mobKooLoginCallBack);
+      MobKooManager.getInstance().getUserInfo(this, mobKooLoginCallBack);
+    }
+
+    public void login() {
+         MobKooManager.getInstance().login(this, mobKooLoginCallBack);
+
     }
 
     public void LogOut() {
-        MobKooHelp.singleton().logout(this);
+        MobKooManager.getInstance().logout(this);
     }
 
-    Long time;
+    void pay() {
+        startActivity(new Intent(this, PayActivity.class));
+    }
+
+    long time=0L;
 
     @Override
     public void onClick(View view) {
@@ -62,9 +72,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             time = System.currentTimeMillis();
         } else if (view.getId() == R.id.btn_login) {
-            MobKooHelp.singleton().login(this, mobKooLoginCallBack);
+            login();
         } else if (view.getId() == R.id.btn_pay) {
-            startActivity(new Intent(this, PayActivity.class));
+            pay();
+        } else if (view.getId() == R.id.btn_getUserInfo) {
+            getUserInfo();
         }
     }
 
@@ -75,11 +87,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnLogin.setOnClickListener(MainActivity.this);
         btnPay = (Button) findViewById(R.id.btn_pay);
         btnPay.setOnClickListener(MainActivity.this);
+        btnGetUserInfo = (Button) findViewById(R.id.btn_getUserInfo);
+        btnGetUserInfo.setOnClickListener(MainActivity.this);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        MobKooHelp.singleton().onActivityResult(requestCode, resultCode, data);
+         MobKooManager.getInstance().onActivityResult(requestCode, resultCode, data);
     }
 }

@@ -3,6 +3,7 @@
     package="com.project.mobkoosdkdemo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 
     <application
         android:name=".MobKooApplication"
@@ -53,7 +54,7 @@
             </intent-filter>
         </activity>
 
-        <meta-data
+    <!--    <meta-data
             android:name="mobkoo_appid"
             android:value="8" />
         <meta-data
@@ -71,6 +72,6 @@
         <meta-data
             android:name="mobkoo_google_licensekey"
             android:value="MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA3JSWpSZ7An/jYxoYiFFzbVSAP9JdxV8gowBxUwJjO38sKSeY4JfBOXWOqIW59ZGYRB/xMKaNsju1XNYo8q/LS1pEadYShkzYfQwI1mujIjhbnMu2hhsa6Z94cbSFuTZb+vHw+z7RcbAZU9xyiWDeCT8BC4BX2osnn4fn9C9DMMJD+AbgBBBGjduuohkgdUSZJl3j/U9gisSKYTu6F2R1hD1i9qYywMstbWrXlewikYVnao5KjKt+qbcrMTOemuK04gaxjhnuL953QIWO9yo+VU1LOMsyrFtYQ7e4YNywEfBpoowxVmns9MxP6FXfLSMqjgVZ58sMsnAWqCQyxoGXqwIDAQAB" />
-    </application>
+-->    </application>
 
 </manifest>
