@@ -21,7 +21,7 @@
 
 ## 请求地址
 
-http://api.mobkoo.com/pay/api
+http://api.mobkoo.com/payout/redirect
 
 ## 请求参数
 
