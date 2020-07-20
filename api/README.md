@@ -32,6 +32,7 @@ http://api.mobkoo.com/payout/redirect
 | country_id   | int    | 必传               | 国家ID                                                       | 1          |
 | item_id      | int    | 必传               | 项目ID                                                       | 1          |
 | price        | float  | 可选（订阅不用传） | 支付价格(必须大于0)                                          | 10.00      |
+| currency     | string | 必传               | 货币单位                                                     | USD        |
 | type         | string | 可选（点播不用传） | 类型，默认iod<br/>iod=点播<br/>sub=订阅                      | sub        |
 | product_id   | string | 可选（点播不用传） | 产品id<br />（在支付完成之后会通过服务器回传）               | 888        |
 | sandbox      | int    | 必传               | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境(进行沙盒测试请先将测试的客户端IP地址通知我方运营进行添加) | 0          |
