@@ -38,5 +38,5 @@ http://api.mobkoo.com/pay/api
 
 # 支付回调
 
-支付回调请点击链接查看详情：[/server/callback](/server/callback)
+支付回调请点击链接查看详情：[/server](/server)
 
