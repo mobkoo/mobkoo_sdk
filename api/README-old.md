@@ -28,13 +28,15 @@ http://api.mobkoo.com/payout/redirect
 | 字段         | 类型   | 是否必填           | **描述**                                                     | **示例值** |
 | ------------ | ------ | ------------------ | ------------------------------------------------------------ | ---------- |
 | appid        | string | 必传               | Mobkoo分配给开发者的应用ID                                   | 123456     |
-| out_order_id | string | 可选               | 商户订单号                                    | dasd45sa45 |
+| out_order_id | string | 可选               | 商户订单号（自定义参数）                                     | dasd45sa45 |
 | country_id   | int    | 必传               | 国家ID                                                       | 1          |
 | item_id      | int    | 必传               | 项目ID                                                       | 1          |
-| price        | float  | 必传 | 支付价格(必须大于0)                                          | 10.00      |
+| price        | float  | 可选（订阅不用传） | 支付价格(必须大于0)                                          | 10.00      |
 | currency     | string | 必传               | 货币单位                                                     | USD        |
-| sandbox      | int    | 必传               | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境 |            |
-| description  | string | 可选               | 订单描述                                                     | 购买xx物品 |
+| type         | string | 可选（点播不用传） | 类型，默认iod<br/>iod=点播<br/>sub=订阅                      | sub        |
+| product_id   | string | 可选（点播不用传） | 产品id<br />（在支付完成之后会通过服务器回传）               | 888        |
+| sandbox      | int    | 必传               | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境(进行沙盒测试请先将测试的客户端IP地址通知我方运营进行添加) | 0          |
+| description  | string | 可选               | 订单描述                                                     | xx道具购买 |
 
 # 支付回调
 

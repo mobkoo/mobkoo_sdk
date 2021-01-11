@@ -1,6 +1,10 @@
-# 服务器端API接口文档
+<h1><center>服务器API接口文档</center></h1>
 
-## 更新记录
+# 目录
+
+[TOC]
+
+# 更新记录
 
 | 版本号 |  更新日期  |               更新日志               |
 | :----: | :--------: | :----------------------------------: |
@@ -12,17 +16,32 @@
 |  1.5   | 2019-05-30 |     支付增加商家返回链接参数说明     |
 |  2.0   | 2020-05-13 |               架构调整               |
 
-## 商家返回链接参数说明
+# 发起支付
 
-当用户进行返回商家操作时,向该链接进行跳转,该链接请提前在后台设置或发送给我方运营进行设置
+## 请求方式
 
-回传的方式：GET
+以HTTP 的GET请求进行跳转，或者通过html的form表单提交也行
 
-| 字段         | 类型   | 是否必填 | 描述                                                         | 示例值                           |
-| ------------ | ------ | -------- | ------------------------------------------------------------ | -------------------------------- |
-| out_order_id | string | 是       | 商户订单号（发起支付前的自定义参数）                         | 12345                            |
-| state        | string | 是       | 订单状态，<br />succ=支付成功，<br />fail=支付失败，<br />refund=退款 | succ                             |
-| sign         | string | 是       | 签名，md5(md5(待签名字符串)+签名的钥匙)<br />生成过程请参考"如何签名"章节 | 74873f87e1dda8ac2b1b727b90c079a3 |
+## 请求地址
+
+http://api.mobkoo.com/payout/redirect
+
+## 请求参数
+
+| 字段         | 类型   | 是否必填           | **描述**                                                     | **示例值** |
+| ------------ | ------ | ------------------ | ------------------------------------------------------------ | ---------- |
+| appid        | string | 必传               | Mobkoo分配给开发者的应用ID                                   | 123456     |
+| out_order_id | string | 可选               | 商户订单号                                    | dasd45sa45 |
+| country_id   | int    | 必传               | 国家ID                                                       | 1          |
+| item_id      | int    | 必传               | 项目ID                                                       | 1          |
+| price        | float  | 必传 | 支付价格(必须大于0)                                          | 10.00      |
+| currency     | string | 必传               | 货币单位                                                     | USD        |
+| sandbox      | int    | 必传               | 是否是沙盒环境<br />0=正式环境<br />1=沙盒环境 |            |
+| description  | string | 可选               | 订单描述                                                     | 购买xx物品 |
+
+# 支付回调
+
+
 
 ## 支付回调参数
 
@@ -108,29 +127,28 @@ ok
 请求方式：GET/POST
 
 ## 请求地址
+
 http://api.mobkoo.com/pay/common.CheckOrder/index
 
-| 字段     | 类型   | 是否必填 | 描述                     | 示例值          |
-| -------- | ------ | -------- | ------------------------ | --------------- |
+| 字段     | 类型   | 是否必填 | 描述                       | 示例值          |
+| -------- | ------ | -------- | -------------------------- | --------------- |
 | appid    | string | 是       | Mobkoo分配给开发者的应用ID | 123456          |
-| order_id | string | 是       | 订单ID                   | 201809191dksd55 |
+| order_id | string | 是       | 订单ID                     | 201809191dksd55 |
 
 
 
 ## 响应参数
 
-| 字段            | 类型   | 是否必填 | 描述                                                         |
-| :-------------- | ------ | -------- | ------------------------------------------------------------ |
-| code            | string | 是       | 返回的状态结果<br />200=成功，<br />400=失败 <br/>401:未查询到该订单 |
-| msg             | string | 是       | 返回的具体信息                                               |
-| data            | string | 否       | json数据集合                                                 |
-| data.order_info.state                 | String | 是   | 订单状态 <br/>pending:支付中<br />succ:支付成功<br />fail:支付失败<br />refund:退款 |
-| data.order_info.order_id | String | 是 | 订单ID |
-| data.order_info.out_order_id          | String | 否       | 商户订单号(由商户自定义)                                       |
-| data.order_info.game_currency         | float  | 否       | 游戏币                                                       |
+| 字段                                  | 类型   | 是否必填 | 描述                                                         |
+| :------------------------------------ | ------ | -------- | ------------------------------------------------------------ |
+| code                                  | string | 是       | 返回的状态结果<br />200=成功，<br />400=失败 <br/>401:未查询到该订单 |
+| msg                                   | string | 是       | 返回的具体信息                                               |
+| data                                  | string | 否       | json数据集合                                                 |
+| data.order_info.state                 | String | 是       | 订单状态 <br/>pending:支付中<br />succ:支付成功<br />fail:支付失败<br />refund:退款 |
+| data.order_info.order_id              | String | 是       | 订单ID                                                       |
+| data.order_info.out_order_id          | String | 否       | 商户订单号                                                   |
 | data.order_info.game_currency_present | float  | 否       | 当地货币单位                                                 |
-| data.order_info.price | float | 是 | 价格 |
-| data.order_info.sandbox | int | 是 | 是否为沙盒环境,1代表沙盒环境 |
-| data.order_info.platform_name | String | 是 | 支付平台ID |
-| data.order_info.product_id | String | 否 | 商品ID |
+| data.order_info.price                 | float  | 是       | 价格                                                         |
+| data.order_info.sandbox               | int    | 是       | 是否为沙盒环境,1代表沙盒环境                                 |
+| data.order_info.platform_name         | String | 是       | 支付平台ID                                                   |
 
